@@ -17,25 +17,5 @@ interface Searchable
     /**
      * @return string
      */
-    public function getSearchTitle();
-
-    /**
-     * @return string
-     */
-    public function getSearchUrl();
-
-    /**
-     * @return string
-     */
-    public function getSearchImage();
-
-    /**
-     * @return string
-     */
-    public function getSearchView();
-
-    /**
-     * @return string
-     */
     public function getSearchContent();
 }

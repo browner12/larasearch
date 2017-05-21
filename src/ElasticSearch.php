@@ -44,6 +44,8 @@ class ElasticSearch implements Searcher
     /**INDEXING**/
 
     /**
+     * add a model to the index
+     *
      * @param \browner12\larasearch\Contracts\Searchable $searchable
      * @return array|mixed
      */
@@ -60,6 +62,8 @@ class ElasticSearch implements Searcher
     }
 
     /**
+     * update a model in the index
+     *
      * @param \browner12\larasearch\Contracts\Searchable $searchable
      * @return array|mixed
      */
@@ -82,6 +86,8 @@ class ElasticSearch implements Searcher
     }
 
     /**
+     * bulk insert models into the index
+     *
      * @param \Illuminate\Support\Collection $searchables
      * @param int                            $limit
      * @return mixed|void
@@ -110,6 +116,8 @@ class ElasticSearch implements Searcher
     }
 
     /**
+     * delete a model from the index
+     *
      * @param \browner12\larasearch\Contracts\Searchable $searchable
      * @return array|mixed
      */
@@ -125,7 +133,7 @@ class ElasticSearch implements Searcher
     /**SEARCHING**/
 
     /**
-     * basic search
+     * perform a basic search
      *
      * @param string $query
      * @param int    $page
@@ -153,6 +161,8 @@ class ElasticSearch implements Searcher
     }
 
     /**
+     * perform a search on a specific model type
+     *
      * @param string $type
      * @param string $query
      * @param int    $page
@@ -181,6 +191,8 @@ class ElasticSearch implements Searcher
     }
 
     /**
+     * perform an autocomplete search
+     *
      * @param string $query
      * @param int    $page
      * @param int    $perPage
@@ -207,6 +219,8 @@ class ElasticSearch implements Searcher
     }
 
     /**
+     * check if the given model exists in the search index
+     *
      * @param \browner12\larasearch\Contracts\Searchable $searchable
      * @return array|bool
      */
@@ -220,6 +234,8 @@ class ElasticSearch implements Searcher
     }
 
     /**
+     * turn elasticsearch hits into Eloquent models
+     *
      * @param array $results
      * @return \browner12\larasearch\Collections\Results
      */
@@ -250,6 +266,8 @@ class ElasticSearch implements Searcher
     /**MANAGEMENT**/
 
     /**
+     * create an index
+     *
      * @param string $name
      * @return array
      */
@@ -261,6 +279,8 @@ class ElasticSearch implements Searcher
     }
 
     /**
+     * delete an index
+     *
      * @param string $name
      * @return array
      */
