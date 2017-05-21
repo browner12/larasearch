@@ -1,4 +1,4 @@
-# larasearch
+# LaraSearch
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -11,15 +11,15 @@ This is a search package built to easily integrate with Laravel. It uses a drive
 
 ## Why Not Use Scout?
 
-There are 2 major differences between Scout and Larasearch. First, Scout currently only has native support for Algolia, which is a service you pay for. They do have a free option, but this version has limits that will definitely be an issue for some. While Elasticsearch was originally supported, it was dropped due to complexity. There is a community effort to bring it back in as a native driver, but the road map on that is uncertain. 
+There are 2 major differences between Scout and LaraSearch. First, Scout currently only has native support for Algolia, which is a service you pay for. They do have a free option, but this version has limits that will definitely be an issue for some. While Elasticsearch was originally supported, it was dropped due to complexity. There is a community effort to bring it back in as a native driver, but the road map on that is uncertain. 
 
-The second, and more important, difference is that Larasearch allows for 'site wide' searching, while Scout does not. In Scout, the searching is done on the models.
+The second, and more important difference is that LaraSearch allows for 'site wide' searching, while Scout does not. In Scout, the searching is done on the models.
 
 ```php
 User::search('Andrew');
 ```
 
-While this may be okay for some users, the far more common requirement is to be able to search an entire site. If a query is submitted for 'Andrew', I want to find the `User` Andrew, the `Department` he belongs to, and all of the `Blog` posts he has written. Additionally with Larasearch, you are still able to restrict your search to a specific model if so desired.
+While this may be okay for some users, the far more common requirement is to be able to search an entire site. If a query is submitted for 'Andrew', I want to find the `User` Andrew, the `Department` he belongs to, and all of the `Blog` posts he has written. Additionally with LaraSearch, you are still able to restrict your search to a specific model if so desired.
 
 ## Install
 
@@ -59,7 +59,7 @@ php artisan vendor:publish --provider="browner12\larasearch\SearchServiceProvide
 
 ## Usage
 
-Your desired driver is bound to a `Searcher` interface, so anyplace you wish to use Larasearch that supports automatic dependency resolution, you can simply type hint the interface.
+Your desired driver is bound to a `Searcher` interface, so anyplace you wish to use LaraSearch that supports automatic dependency resolution, you can simply type hint the interface.
 
 ``` php
 
@@ -71,6 +71,8 @@ class SearchController
     }
 }
 ```
+
+Please see the [DOCUMENTATION](docs/readme.md) for more in-depth explanations.
 
 ## Change log
 

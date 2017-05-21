@@ -29,4 +29,12 @@ trait CanBeSearched
     {
         return $this->getKey();
     }
+
+    /**
+     * @return array
+     */
+    public function gtSearchContent()
+    {
+        return $this->toArray();
+    }
 }
