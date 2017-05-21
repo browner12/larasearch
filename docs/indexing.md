@@ -1,13 +1,12 @@
 # LaraSearch Documentation
 
-## Config Setup
+## Creating
 
-Your `search.php` configuration file is well-documented and only contains a handful of values you may need to adjust. It comes preset with sensible defaults.
+## Updating
 
+## Deleting
 
-
-## Model Setup
-
+## Bulk Updates
 
 ## Next Steps
 
