@@ -33,6 +33,17 @@ interface Searcher
     public function delete(Searchable $searchable);
 
     /**
+     * @param string $type
+     * @return array
+     */
+    public function truncateType($type);
+
+    /**
+     * @return array
+     */
+    public function truncateIndex();
+
+    /**
      * @param string $query
      * @param int    $page
      * @param int    $perPage
@@ -56,4 +67,32 @@ interface Searcher
      * @return \browner12\larasearch\Collections\Results
      */
     public function autocomplete($query, $page = null, $perPage = null);
+
+    /**
+     * @param \browner12\larasearch\Contracts\Searchable $searchable
+     * @return mixed
+     */
+    public function exists(Searchable $searchable);
+
+    /**
+     * @param string $index
+     * @return mixed
+     */
+    public function createIndex($index);
+
+    /**
+     * @param string $index
+     * @return mixed
+     */
+    public function deleteIndex($index = null);
+
+    /**
+     * @return int
+     */
+    public function getTotalHits();
+
+    /**
+     * @return float
+     */
+    public function getMaxScore();
 }

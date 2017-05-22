@@ -12,17 +12,17 @@ class ElasticSearch implements Searcher
     /**
      * @var string
      */
-    private $index;
+    protected $index;
 
     /**
      * @var \Elasticsearch\Client
      */
-    private $client;
+    protected $client;
 
     /**
-     * @var int
+     * @var array
      */
-    public $totalHits;
+    protected $resultMeta;
 
     /**
      * constructor
@@ -56,6 +56,7 @@ class ElasticSearch implements Searcher
             'type'  => $searchable->getSearchType(),
             'id'    => $searchable->getSearchId(),
             'body'  => [
+                'model'   => get_class($searchable),
                 'content' => $searchable->getSearchContent(),
             ],
         ]);
@@ -107,6 +108,7 @@ class ElasticSearch implements Searcher
                 ];
 
                 $params['body'][] = [
+                    'model'   => get_class($searchable),
                     'content' => $searchable->getSearchContent(),
                 ];
             }
@@ -127,6 +129,32 @@ class ElasticSearch implements Searcher
             'index' => $this->index,
             'type'  => $searchable->getSearchType(),
             'id'    => $searchable->getSearchId(),
+        ]);
+    }
+
+    /**
+     * truncate type from the index
+     *
+     * @param string $type
+     * @return array
+     */
+    public function truncateType($type)
+    {
+        return $this->client->delete([
+            'index' => $this->index,
+            'type'  => $type,
+        ]);
+    }
+
+    /**
+     * truncate the index
+     *
+     * @return array
+     */
+    public function truncateIndex()
+    {
+        return $this->client->delete([
+            'index' => $this->index,
         ]);
     }
 
@@ -155,9 +183,9 @@ class ElasticSearch implements Searcher
             ],
         ]);
 
-        $this->totalHits = $results['hits']['total'];
+        $this->setResultMeta($results);
 
-        return $this->hitsToEloquent($results);
+        return $this->hitsToEloquent($results['hits']['hits']);
     }
 
     /**
@@ -185,9 +213,9 @@ class ElasticSearch implements Searcher
             ],
         ]);
 
-        $this->totalHits = $results['hits']['total'];
+        $this->setResultMeta($results);
 
-        return $this->hitsToEloquent($results);
+        return $this->hitsToEloquent($results['hits']['hits']);
     }
 
     /**
@@ -213,9 +241,9 @@ class ElasticSearch implements Searcher
             ],
         ]);
 
-        $this->totalHits = $results['hits']['total'];
+        $this->setResultMeta($results);
 
-        return $this->hitsToEloquent($results);
+        return $this->hitsToEloquent($results['hits']['hits']);
     }
 
     /**
@@ -236,18 +264,18 @@ class ElasticSearch implements Searcher
     /**
      * turn elasticsearch hits into Eloquent models
      *
-     * @param array $results
+     * @param array $hits
      * @return \browner12\larasearch\Collections\Results
      */
-    public function hitsToEloquent($results)
+    protected function hitsToEloquent($hits)
     {
         //initialize
         $return = [];
 
         //loop
-        foreach ($results['hits']['hits'] as $hit) {
+        foreach ($hits as $hit) {
 
-            $model = '\\' . $hit['_type'];
+            $model = '\\' . $hit['_source']['model'];
 
             $object = $model::find($hit['_id']);
 
@@ -289,5 +317,39 @@ class ElasticSearch implements Searcher
         $index = ($name) ?: $this->index;
 
         return $this->client->indices()->delete(['index' => $index]);
+    }
+
+    /**HELPERS**/
+
+    /**
+     * set result meta data
+     *
+     * @param $result
+     */
+    protected function setResultMeta($result)
+    {
+        $this->resultMeta['took'] = isset($result['took']) ? $result['took'] : null;
+        $this->resultMeta['timed_out'] = isset($result['timed_out']) ? $result['timed_out'] : null;
+        $this->resultMeta['shards'] = isset($result['_shards']) ? $result['_shards'] : null;
+        $this->resultMeta['total'] = isset($result['hits']['total']) ? $result['hits']['total'] : null;
+        $this->resultMeta['max_score'] = isset($result['hits']['max_score']) ? $result['hits']['max_score'] : null;
+    }
+
+    /**
+     * get the total hits of a search
+     *
+     * @return int
+     */
+    public function getTotalHits()
+    {
+        return isset($this->resultMeta['totalHits']) ? $this->resultMeta['totalHits'] : null;
+    }
+
+    /**
+     * @return float
+     */
+    public function getMaxScore()
+    {
+        return isset($this->resultMeta['maxScore']) ? $this->resultMeta['totalHits'] : null;
     }
 }
