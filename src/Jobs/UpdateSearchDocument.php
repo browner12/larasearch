@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace browner12\larasearch\Jobs;
 
 use browner12\larasearch\Contracts\Searchable;
 use browner12\larasearch\Searcher;

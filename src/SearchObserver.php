@@ -2,9 +2,9 @@
 
 namespace browner12\larasearch;
 
-use App\Jobs\CreateSearchDocument;
-use App\Jobs\DeleteSearchDocument;
-use App\Jobs\UpdateSearchDocument;
+use browner12\larasearch\Jobs\CreateSearchDocument;
+use browner12\larasearch\Jobs\DeleteSearchDocument;
+use browner12\larasearch\Jobs\UpdateSearchDocument;
 
 class SearchObserver
 {
