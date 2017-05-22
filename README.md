@@ -72,7 +72,7 @@ class SearchController
 }
 ```
 
-Please see the [DOCUMENTATION](docs/readme.md) for more in-depth explanations.
+Please see the [DOCUMENTATION](docs/) for more in-depth explanations.
 
 ## Change log
 

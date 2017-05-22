@@ -32,7 +32,7 @@ Congrats! You have finished reading the documentation. You are now ready to add 
 
 Or, if you need a refresher, check out the docs some more.
 
-[SETUP](readme.md)
-[ELASTICSEARCH](elasticsearch.md)
-[INDEXING](indexing.md)
-[SEARCHING](searching.md)
+- [SETUP](readme.md)
+- [ELASTICSEARCH](elasticsearch.md)
+- [INDEXING](indexing.md)
+- [SEARCHING](searching.md)
