@@ -21,7 +21,7 @@ class SearchObserver
     public function __construct(Searcher $searcher)
     {
         //assign
-        $this->search = $searcher;
+        $this->searcher = $searcher;
     }
 
     /**
@@ -33,7 +33,9 @@ class SearchObserver
             dispatch(new CreateSearchDocument($model));
         }
 
-        $this->searcher->create($model);
+        else {
+            $this->searcher->create($model);
+        }
     }
 
     /**
@@ -45,7 +47,9 @@ class SearchObserver
             dispatch(new UpdateSearchDocument($model));
         }
 
-        $this->searcher->update($model);
+        else {
+            $this->searcher->update($model);
+        }
     }
 
     /**
@@ -57,6 +61,8 @@ class SearchObserver
             dispatch(new DeleteSearchDocument($model));
         }
 
-        $this->searcher->delete($model);
+        else {
+            $this->searcher->delete($model);
+        }
     }
 }
