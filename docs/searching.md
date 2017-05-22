@@ -1,17 +1,30 @@
 # LaraSearch Documentation
 
-## Config Setup
-
-Your `search.php` configuration file is well-documented and only contains a handful of values you may need to adjust. It comes preset with sensible defaults.
-
-
+Now the fun part... actually searching for documents!
 
 ## Basic Search
 
+A basic search will use the entire index, and return all relevant documents to you.
+
+```php
+$searcher->search('query');
+```
+
 ## Type Search
+
+You may also limit your search to a particular type.
+
+```php
+$searcher->searchType(App\User::class, 'query');
+```
 
 ## Autocomplete
 
+Finally, autocomplete works on partial matches, and can be used to build instant search results.
+
+```php
+$searcher->autocomplete('query');
+```
 
 ## Next Steps
 
