@@ -2,7 +2,6 @@
 
 namespace browner12\larasearch;
 
-use browner12\larasearch\Console\IndexCommand;
 use Illuminate\Support\ServiceProvider;
 
 class SearchServiceProvider extends ServiceProvider
@@ -68,7 +67,8 @@ class SearchServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                IndexCommand::class,
+                \browner12\larasearch\Console\IndexCommand::class,
+                \browner12\larasearch\Console\FlushCommand::class,
             ]);
         }
     }
