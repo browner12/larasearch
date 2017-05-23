@@ -29,4 +29,12 @@ class SearchManager extends Manager
 
         return new ElasticSearch($this->app['config']['search.index'], $hosts);
     }
+
+    /**
+     * @return \browner12\larasearch\NullSearch
+     */
+    protected function createNullDriver()
+    {
+        return new NullSearch();
+    }
 }
