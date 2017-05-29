@@ -153,7 +153,7 @@ class ElasticSearch implements Searcher
      */
     public function truncateIndex()
     {
-        return $this->client->delete([
+        return $this->client->indices()->delete([
             'index' => $this->index,
         ]);
     }
