@@ -342,7 +342,7 @@ class ElasticSearch implements Searcher
      */
     public function getTotalHits()
     {
-        return isset($this->resultMeta['totalHits']) ? $this->resultMeta['totalHits'] : null;
+        return isset($this->resultMeta['total']) ? $this->resultMeta['total'] : null;
     }
 
     /**
@@ -350,6 +350,6 @@ class ElasticSearch implements Searcher
      */
     public function getMaxScore()
     {
-        return isset($this->resultMeta['maxScore']) ? $this->resultMeta['totalHits'] : null;
+        return isset($this->resultMeta['max_score']) ? $this->resultMeta['max_score'] : null;
     }
 }
