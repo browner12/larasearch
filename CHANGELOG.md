@@ -8,10 +8,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Added
 - Queue tubes are now customizable.
+- Support for Laravel auto-discovery.
 
 ### Changed
 - Rename the config file to `larasearch.php` to help avoid conflicts.
 - Moving forward with PHP7. No longer supporting older versions.
+- Rename the service provider.
 
 ### Fixed
 - `getSearchContent()` was incorrectly spelled `gtSearchContent()` in the `CanBeSearched` trait.

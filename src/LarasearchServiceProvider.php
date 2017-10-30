@@ -4,7 +4,7 @@ namespace browner12\larasearch;
 
 use Illuminate\Support\ServiceProvider;
 
-class SearchServiceProvider extends ServiceProvider
+class LarasearchServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
