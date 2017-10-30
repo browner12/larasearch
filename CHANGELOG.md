@@ -11,6 +11,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Changed
 - Rename the config file to `larasearch.php` to help avoid conflicts.
+- Moving forward with PHP7. No longer supporting older versions.
 
 ### Fixed
 - `getSearchContent()` was incorrectly spelled `gtSearchContent()` in the `CanBeSearched` trait.
