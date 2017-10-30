@@ -32,7 +32,7 @@ class IndexCommand extends Command
         $class = $this->argument('model');
 
         if (is_null($class)) {
-            $classes = config('search.models');
+            $classes = config('search.models', []);
         }
 
         else {
