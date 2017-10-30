@@ -2,7 +2,7 @@
 
 ## Config Setup
 
-Your `search.php` configuration file is well-documented and only contains a handful of values you may need to adjust. It comes preset with sensible defaults.
+Your `larasearch.php` configuration file is well-documented and only contains a handful of values you may need to adjust. It comes preset with sensible defaults.
 
 ### Driver
 
@@ -23,6 +23,11 @@ Add the names of the models in your application that implement the `Searchable` 
 ### Queue
 
 Larasearch makes it *incredibly* easy to queue the indexing operations of the `SearchObserver`. You have full control to index at any of the operations we monitor with the observer. If any of these values are `true`, we will create a queued `Job` when the observer picks up on a change, rather than executing the search operation immediately.
+
+
+### Tubes
+
+You may also specify which queue tube your jobs will run on. This is a good way to have different priority jobs that can be assigned different resources.
 
 ## Model Setup
 
@@ -46,3 +51,7 @@ The `getSearchType` method provides us with the name of the type of model we are
 ## Next Steps
 
 Once you have completed the setup, read more about [INDEXING](indexing.md) and [SEARCHING](searching.md).
+
+## Upgrading
+
+If you are upgrading to v1, please read the [UPGRADE GUIDE](upgrading-to-v1.md).

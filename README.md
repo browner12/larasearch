@@ -39,22 +39,24 @@ Add the service provider to the providers array in  `config/app.php`.
 
 ``` php
 'providers' => [
-    browner12\larasearch\SearchServiceProvider::class,
+    browner12\larasearch\LarasearchServiceProvider::class,
 ];
 ```
+
+If you are using Laravel's auto-discovery, there is no need to complete this step.
 
 ## Publishing
 
 You can publish everything at once
 
 ``` php
-php artisan vendor:publish --provider="browner12\larasearch\SearchServiceProvider"
+php artisan vendor:publish --provider="browner12\larasearch\LarasearchServiceProvider"
 ```
 
 or you can publish groups individually.
 
 ``` php
-php artisan vendor:publish --provider="browner12\larasearch\SearchServiceProvider" --tag="config"
+php artisan vendor:publish --provider="browner12\larasearch\LarasearchServiceProvider" --tag="config"
 ```
 
 ## Usage
