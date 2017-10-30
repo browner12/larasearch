@@ -96,4 +96,21 @@ return [
         'deleted' => false,
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Queue Tubes
+    |--------------------------------------------------------------------------
+    |
+    | Each queue connection can have different 'tubes'. This allows you to
+    | balance your tubes based on priority. Sensible defaults have been
+    | selected.
+    |
+    */
+
+    'tubes' => [
+        'created' => env('SEARCH_TUBE', 'search'),
+        'updated' => env('SEARCH_TUBE', 'search'),
+        'deleted' => env('SEARCH_TUBE', 'search'),
+    ],
+
 ];

@@ -28,6 +28,9 @@ class UpdateSearchDocument implements ShouldQueue
     {
         //assign
         $this->searchable = $searchable;
+
+        //select queue
+        $this->onQueue(config('search.tubes.updated', 'default'));
     }
 
     /**

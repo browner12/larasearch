@@ -6,6 +6,9 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## [UNRELEASED]
 
+### Added
+- Queue tubes are now customizable.
+
 ## [0.1.1] - 2017-06-04
 
 ### Fixed

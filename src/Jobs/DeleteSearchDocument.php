@@ -28,6 +28,9 @@ class DeleteSearchDocument implements ShouldQueue
     {
         //assign
         $this->searchable = $searchable;
+
+        //select queue
+        $this->onQueue(config('search.tubes.deleted', 'default'));
     }
 
     /**
