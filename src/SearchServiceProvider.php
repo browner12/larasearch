@@ -29,7 +29,7 @@ class SearchServiceProvider extends ServiceProvider
      */
     protected function registerSearchManager()
     {
-        $this->app->singleton('search.manager', function ($app) {
+        $this->app->singleton('larasearch.manager', function ($app) {
             return new SearchManager($app);
         });
     }
@@ -42,7 +42,7 @@ class SearchServiceProvider extends ServiceProvider
     protected function registerSearchDriver()
     {
         $this->app->singleton(Searcher::class, function ($app) {
-            return $app->make('search.manager')->driver();
+            return $app->make('larasearch.manager')->driver();
         });
     }
 
@@ -54,7 +54,7 @@ class SearchServiceProvider extends ServiceProvider
     protected function publishResources()
     {
         $this->publishes([
-            __DIR__ . '/config/search.php' => config_path('search.php'),
+            __DIR__ . '/config/larasearch.php' => config_path('larasearch.php'),
         ], 'config');
     }
 

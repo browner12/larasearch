@@ -29,7 +29,7 @@ class SearchObserver
      */
     public function created($model)
     {
-        if (config('search.queue.created', false)) {
+        if (config('larasearch.queue.created', false)) {
             dispatch(new CreateSearchDocument($model));
         }
 
@@ -43,7 +43,7 @@ class SearchObserver
      */
     public function updated($model)
     {
-        if (config('search.queue.updated', false)) {
+        if (config('larasearch.queue.updated', false)) {
             dispatch(new UpdateSearchDocument($model));
         }
 
@@ -57,7 +57,7 @@ class SearchObserver
      */
     public function deleted($model)
     {
-        if (config('search.queue.deleted', false)) {
+        if (config('larasearch.queue.deleted', false)) {
             dispatch(new DeleteSearchDocument($model));
         }
 

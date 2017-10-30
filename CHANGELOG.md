@@ -9,6 +9,9 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Added
 - Queue tubes are now customizable.
 
+### Changed
+- Rename the config file to `larasearch.php` to help avoid conflicts.
+
 ### Fixed
 - `getSearchContent()` was incorrectly spelled `gtSearchContent()` in the `CanBeSearched` trait.
 - If the config does not contain a 'models' key, we will make sure we default to an array in the `IndexCommand`.

@@ -30,7 +30,7 @@ class CreateSearchDocument implements ShouldQueue
         $this->searchable = $searchable;
 
         //select queue
-        $this->onQueue(config('search.tubes.created', 'default'));
+        $this->onQueue(config('larasearch.tubes.created', 'default'));
     }
 
     /**

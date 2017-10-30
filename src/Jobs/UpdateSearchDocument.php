@@ -30,7 +30,7 @@ class UpdateSearchDocument implements ShouldQueue
         $this->searchable = $searchable;
 
         //select queue
-        $this->onQueue(config('search.tubes.updated', 'default'));
+        $this->onQueue(config('larasearch.tubes.updated', 'default'));
     }
 
     /**

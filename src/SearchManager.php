@@ -13,7 +13,7 @@ class SearchManager extends Manager
      */
     public function getDefaultDriver()
     {
-        return $this->app['config']['search.driver'];
+        return $this->app['config']['larasearch.driver'];
     }
 
     /**
@@ -23,11 +23,11 @@ class SearchManager extends Manager
     {
         $hosts = [];
 
-        foreach($this->app['config']['search.hosts'] as $host){
-            $hosts[] = $this->app['config']['search.connections.' . $host];
+        foreach($this->app['config']['larasearch.hosts'] as $host){
+            $hosts[] = $this->app['config']['larasearch.connections.' . $host];
         }
 
-        return new ElasticSearch($this->app['config']['search.index'], $hosts);
+        return new ElasticSearch($this->app['config']['larasearch.index'], $hosts);
     }
 
     /**
