@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => env('SEARCH_DRIVER', 'elasticsearch'),
+    'driver' => env('LARASEARCH_DRIVER', 'elasticsearch'),
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'index' => env('SEARCH_INDEX', 'my-application'),
+    'index' => env('LARASEARCH_INDEX', 'my-application'),
 
     /*
     |--------------------------------------------------------------------------
@@ -38,7 +38,7 @@ return [
     |
     */
 
-    'hosts' => env('SEARCH_HOSTS', ['localhost']),
+    'hosts' => env('LARASEARCH_HOSTS', ['localhost']),
 
     /*
     |--------------------------------------------------------------------------
@@ -108,9 +108,9 @@ return [
     */
 
     'tubes' => [
-        'created' => env('SEARCH_TUBE', 'search'),
-        'updated' => env('SEARCH_TUBE', 'search'),
-        'deleted' => env('SEARCH_TUBE', 'search'),
+        'created' => env('LARASEARCH_TUBE', 'search'),
+        'updated' => env('LARASEARCH_TUBE', 'search'),
+        'deleted' => env('LARASEARCH_TUBE', 'search'),
     ],
 
 ];

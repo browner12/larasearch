@@ -30,7 +30,7 @@ class DeleteSearchDocument implements ShouldQueue
         $this->searchable = $searchable;
 
         //select queue
-        $this->onQueue(config('search.tubes.deleted', 'default'));
+        $this->onQueue(config('larasearch.tubes.deleted', 'default'));
     }
 
     /**
