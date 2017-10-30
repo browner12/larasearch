@@ -9,6 +9,9 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Added
 - Queue tubes are now customizable.
 
+### Fixed
+- `getSearchContent()` was incorrectly spelled `gtSearchContent()` in the `CanBeSearched` trait.
+
 ## [0.1.1] - 2017-06-04
 
 ### Fixed

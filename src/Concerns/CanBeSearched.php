@@ -33,7 +33,7 @@ trait CanBeSearched
     /**
      * @return array
      */
-    public function gtSearchContent()
+    public function getSearchContent()
     {
         return $this->toArray();
     }
