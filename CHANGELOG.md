@@ -6,6 +6,11 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## [UNRELEASED]
 
+## [2.1.0] 2020-03-08
+
+### Added
+- support for Laravel 7
+
 ## [2.0.0] 2019-09-08
 
 ### Added
@@ -40,7 +45,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Added
 - New package :)
 
-[unreleased]: https://github.com/browner12/larasearch/compare/v2.0.0...HEAD
+[unreleased]: https://github.com/browner12/larasearch/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/browner12/larasearch/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/browner12/larasearch/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/browner12/larasearch/compare/v0.1.1...v1.0.0
 [0.1.1]: https://github.com/browner12/larasearch/compare/v0.1.0...v0.1.1
